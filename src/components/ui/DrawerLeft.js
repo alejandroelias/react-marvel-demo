@@ -14,6 +14,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import LocalMoviesIcon from '@mui/icons-material/LocalMovies';
 import HomeIcon from '@mui/icons-material/Home';
+import { CharactersCard } from '../Characters/CharactersCard';
 
 
 //Style and components
@@ -153,6 +154,7 @@ export const DrawerLeft = () => {
                 <Routes>
                     <Route path="/" element={<CharactersScreen />} />
                     <Route path="/character" element={<CharactersScreen />} />
+                    <Route path="/character/:heroId" element={<CharactersCard />} />
                     <Route path="/series" element={<SeriesScreen />} />
                 </Routes>
             </Main>

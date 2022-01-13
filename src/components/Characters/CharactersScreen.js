@@ -1,14 +1,15 @@
-import { Grid, Typography } from '@mui/material';
+import { Grid, Typography, TextField } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import { CharacterGrid } from './CharactersGrid';
 
 export const CharactersScreen = () => {
 
-    const [heroes, setHeroes] = useState([]);
-
     useEffect(() => {
         getCharacters();
     }, []);
+
+    const [heroes, setHeroes] = useState([]);
+
 
     const getCharacters = async () => {
         const url = 'https://gateway.marvel.com:443/v1/public/characters?ts=1&apikey=a469d537242aa86366793c4d967002ba&hash=7f20301e7b4fa19a61cffb032aab3714&limit=30';
@@ -30,11 +31,16 @@ export const CharactersScreen = () => {
         setHeroes(characters);
     }
 
+    const getHeroByName = (name) => {
+        return heroes.filter(hero=>hero.name === name)
+    }
+
     return (
         <div>
-            <Typography gutterBottom variant="h2" component="h2">
+            <Typography sx={{ textAlign: 'center' }} gutterBottom variant="h2" component="h2">
                 Characters
             </Typography>
+            <TextField sx={{ width: '100%' }} margin="normal" label="Search by name" variant="outlined" />
             <Grid container spacing={2}>
                 {
                     heroes.map(heroe => (
