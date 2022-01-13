@@ -1,5 +1,6 @@
 import { Grid, Typography, TextField } from '@mui/material';
 import React, { useEffect, useState } from 'react'
+import { useFetchHeroes } from '../../hooks/useFetchHeroes';
 import { CharacterGrid } from './CharactersGrid';
 
 export const CharactersScreen = () => {
@@ -31,16 +32,17 @@ export const CharactersScreen = () => {
         setHeroes(characters);
     }
 
-    const getHeroByName = (name) => {
-        return heroes.filter(hero=>hero.name === name)
-    }
+    const {data, loading} = useFetchHeroes();
+    console.log(data);
 
+    
     return (
         <div>
             <Typography sx={{ textAlign: 'center' }} gutterBottom variant="h2" component="h2">
                 Characters
             </Typography>
             <TextField sx={{ width: '100%' }} margin="normal" label="Search by name" variant="outlined" />
+            {loading ? 'Loading...': 'Data load'}
             <Grid container spacing={2}>
                 {
                     heroes.map(heroe => (
