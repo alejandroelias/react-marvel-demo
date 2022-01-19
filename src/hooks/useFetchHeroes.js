@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { getCharateres } from "../helpers/getHeroes";
 
 export const useFetchHeroes = () => {
 
@@ -7,11 +8,17 @@ export const useFetchHeroes = () => {
         loading: true
     });
 
-    useEffect (()=>{
+    useEffect(() => {
 
-        
+        getCharateres()
+            .then(heroes => {
+                setState({
+                    data: heroes,
+                    loading: false
+                });
+            })
 
-    },[])
+    }, []);
 
     return state;
 }
