@@ -8,7 +8,7 @@ Aplicacion de demostracion para Diparvel
 3. Página responsive.
 4. Menú lateral flotante.
 5. Uso de API
-## Tecnogias usadas
+## Tecnologias usadas
 1. ReactJS (library JS) https://reactjs.org/
 2. React router https://reactrouter.com/docs/en/v6/api
 3. MaterialUI https://mui.com/
